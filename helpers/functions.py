@@ -4,7 +4,7 @@ def mse_loss(y, pred):
     return (y - pred)**2
 
 def d_mse_loss(y, pred):
-    return -2*(1-pred)
+    return -2*(y-pred)
 
 def sigmoid(z):
     """The sigmoid function."""

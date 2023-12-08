@@ -37,6 +37,5 @@ if __name__ == "__main__":
     data = np.array([weight - WEIGHT_OFFSET, height - HEIGHT_OFFSET])
 
     probability = network.forward(data)
-    print(probability[0])
     gender, precent = get_gender(probability[0])
     print(f"You're a {gender} for {precent}%")

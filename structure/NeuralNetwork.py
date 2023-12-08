@@ -50,7 +50,7 @@ class NeuralNetwork:
 
                 self.backprop(y, output)
             predictions.append(prediction)
-            if epoch % 100 == 0:
+            if epoch % 1000 == 0:
                 loss_history.append(loss)
                 if self.show_training:
                     print(f'Epoch: {epoch}; Loss: {loss[0]}')
