@@ -1,5 +1,7 @@
+import json
 from structure.Layer import Layer
 from helpers.functions import mse_loss
+from const.paths import TRAINED_NETWORK
 
 class NeuralNetwork:
     def __init__(self, hyperparameters, show_training) -> None:
@@ -50,9 +52,29 @@ class NeuralNetwork:
 
                 self.backprop(y, output)
             predictions.append(prediction)
-            if epoch % 1000 == 0:
+            if epoch % (self.epochs / 10) == 0:
                 loss_history.append(loss)
                 if self.show_training:
                     print(f'Epoch: {epoch}; Loss: {loss[0]}')
         
+        self.save_weights(TRAINED_NETWORK)
         return loss_history, predictions[-1]
+
+    def save_weights(self, filename):
+        weights_data = {
+            "input_layer": self.input_layer.get_weights(),
+            "hidden_layers": [layer.get_weights() for layer in self.hidden_layers],
+            "output_layer": self.output_layer.get_weights()
+        }
+
+        json_file = open(filename, "w")
+        json.dump(weights_data, json_file, indent=2)
+
+    def load_weights(self, filename):
+        json_file = open(filename, "r")
+        weights_data = json.load(json_file)
+
+        self.input_layer.set_weights(weights_data["input_layer"])
+        for i, layer in enumerate(self.hidden_layers):
+            layer.set_weights(weights_data["hidden_layers"][i])
+        self.output_layer.set_weights(weights_data["output_layer"])

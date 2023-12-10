@@ -6,7 +6,7 @@ class Visualizer:
         self.columns = columns
         self.row = 1
 
-    def draw(self, values_list, x_label, y_label,title):
+    def draw(self, values_list, x_label, y_label, title):
         plt.subplot(self.size, self.columns, self.row)
 
         for values, label in values_list:

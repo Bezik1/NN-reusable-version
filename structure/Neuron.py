@@ -35,3 +35,10 @@ class Neuron:
         self.b += learning_rate * d_L_d_z
 
         return d_L_d_z * self.w.flatten()
+    
+    def get_weights(self):
+        return {"weights": self.w.tolist(), "bias": self.b.tolist()}
+
+    def set_weights(self, weights_data):
+        self.w = np.array(weights_data["weights"])
+        self.b = np.array(weights_data["bias"])

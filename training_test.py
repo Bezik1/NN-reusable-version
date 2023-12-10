@@ -6,13 +6,15 @@ from const.paths import HYPERPARAMETERS_PATH
 from const.offsets import HEIGHT_OFFSET, WEIGHT_OFFSET
 from const.visualizer import VISUALIZER_COLUMNS, VISUALIZER_SIZE
 from structure.NeuralNetwork import NeuralNetwork
-from data.training_data import data, all_y_trues
+from data.training_data import data_2, all_y_trues_2S
 
 if __name__ == "__main__":
     hyperparameters = Hyperparameters(HYPERPARAMETERS_PATH)
-    
+ 
     network = NeuralNetwork(hyperparameters, True)
-    loss_history, last_predictions = network.train(data, all_y_trues)
+    loss_history, last_predictions = network.train(data_2, all_y_trues_2S)
+    
+    print(network.forward(np.array([6]))*100)
 
     visualizer = Visualizer(VISUALIZER_SIZE, VISUALIZER_COLUMNS)
     visualizer.draw(
@@ -23,19 +25,19 @@ if __name__ == "__main__":
     )
 
     visualizer.draw(
-        [(last_predictions, "Predictions"), (all_y_trues, "Actual Value")],
-        "Sample",
-        "Gender",
+        [(last_predictions, "Predictions"), (all_y_trues_2S, "Actual Value")],
+        "X",
+        "Y",
         "Predictions vs Actual"
     )
 
     visualizer.visualize()
 
-    weight = float(input("Weight: "))
-    height = float(input("Height: "))
+    # weight = float(input("Weight: "))
+    # height = float(input("Height: "))
 
-    data = np.array([weight - WEIGHT_OFFSET, height - HEIGHT_OFFSET])
+    # data = np.array([weight - WEIGHT_OFFSET, height - HEIGHT_OFFSET])
 
-    probability = network.forward(data)
-    gender, precent = get_gender(probability[0])
-    print(f"You're a {gender} for {precent}%")
+    # probability = network.forward(data)
+    # gender, precent = get_gender(probability[0])
+    # print(f"You're a {gender} for {precent}%")

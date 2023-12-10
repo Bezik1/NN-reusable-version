@@ -28,3 +28,11 @@ class Layer:
                 neuron.backprop(d_L_d_input[i], learning_rate)
 
             return d_L_d_w
+    
+    
+    def get_weights(self):
+        return [neuron.get_weights() for neuron in self.neurons]
+
+    def set_weights(self, weights_data):
+        for i, neuron in enumerate(self.neurons):
+            neuron.set_weights(weights_data[i])

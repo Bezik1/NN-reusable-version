@@ -43,3 +43,7 @@ all_y_trues = np.array([
     0,
     1,
 ])
+
+data_2 = np.arange(-100, 101) * 0.01
+
+all_y_trues_2S = np.square(data_2)
