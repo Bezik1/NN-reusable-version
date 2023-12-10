@@ -13,8 +13,6 @@ if __name__ == "__main__":
  
     network = NeuralNetwork(hyperparameters, True)
     loss_history, last_predictions = network.train(data_2, all_y_trues_2S)
-    
-    print(network.forward(np.array([6]))*100)
 
     visualizer = Visualizer(VISUALIZER_SIZE, VISUALIZER_COLUMNS)
     visualizer.draw(

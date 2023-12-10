@@ -10,7 +10,7 @@ class Visualizer:
         plt.subplot(self.size, self.columns, self.row)
 
         for values, label in values_list:
-            plt.plot(values, label=label, linestyle='-')
+            plt.plot(values, label=label)
         
         plt.xlabel(x_label)
         plt.ylabel(y_label)

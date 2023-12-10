@@ -1,7 +1,7 @@
 {
     "input_size": 1,
-    "hidden_size": 2,
-    "hidden_neurons": 4,
+    "hidden_size": 1,
+    "hidden_neurons": 8,
     "output_size": 1, 
     "learning_rate": 16,
     "epochs": 5000

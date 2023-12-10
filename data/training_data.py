@@ -44,6 +44,8 @@ all_y_trues = np.array([
     1,
 ])
 
-data_2 = np.arange(-100, 101) * 0.01
+data_2_prototype = np.arange(-1, 1, 0.01)
+all_y_trues_2S_prototype = np.square(data_2_prototype)
 
-all_y_trues_2S = np.square(data_2)
+data_2 = data_2_prototype
+all_y_trues_2S = all_y_trues_2S_prototype
