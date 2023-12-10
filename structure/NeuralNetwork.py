@@ -18,7 +18,7 @@ class NeuralNetwork:
 
         # Layers
         self.input_layer = Layer(self.input_size, self.hidden_neurons)
-        self.hidden_layers = [Layer(self.hidden_neurons, self.hidden_neurons) for _ in range(self.hidden_size-1)]
+        self.hidden_layers = [Layer(self.hidden_neurons, self.hidden_neurons) for _ in range(self.hidden_size)]
         self.output_layer = Layer(self.hidden_neurons, self.output_size)
 
     def forward(self, X):
