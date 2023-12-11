@@ -1,5 +1,16 @@
 # _NN-reusable-version_
 
+## Running
+To run program write in the console:
+```
+python index.py
+```
+
+To train model write;
+```
+python training_test.py
+```
+
 # Structure
 
 ## Neural Network
@@ -12,7 +23,9 @@ to solve current problem based on training set. Neural \ Networks have:
 
 Where input layer is responsible for passing input data \
 in the process of feeding forward to first hidden layer. \
- Data passed by [Activation Function](#activation-function) of each neuron in layer is next transport to output layer which include our final result.
+ Data passed by [Activation Function](#activation-function) of each neuron in layer is next transport to output layer which include our final result. Number of hidden layer, \
+ their size, size of input and output layer, number of epoch \
+in training loop and learning rate are called [Hyperparameters](#hyperparameters).
 
 ## Layer
 Layer is set of neurons with same [Activation Function](#activation-function) and \
@@ -111,6 +124,18 @@ class Neuron:
         self.b = np.array(weights_data["bias"])
 ```
 
+## Hyperparameters
+Hyperparameters are parameters that described structure \
+and working mechanism of our network.
+- learning rate - describe how fast our model must learn from the training data. It's multiplier that we are using \
+training each neuron;
+- epochs - number of epochs in training loop;
+- input size - size of input data that we are passing to \
+the network;
+- output size - expected size of output from our model;
+- hidden neurons - number of neurons in each hidden layer;
+- hidden size - number if hidden layer
+
 # Cost Function
 Cost function is a function that measures how our predictions \
 are diffrent from expected value.
@@ -185,3 +210,19 @@ def backprop(self, d_L_d_out, learning_rate):
 
     return d_L_d_z * self.w.flatten()
 ```
+
+# Result
+
+In our project I use [matplotlib.pyplot](https://matplotlib.org/3.5.3/api/_as_gen/matplotlib.pyplot.html) library to visualise our final effect \
+As we can se network is rapidly learning how to adjust to \
+our training data which are square function arguments and value \
+Network result in my opinion is satisfying.
+
+![Result Image](img/Chart.png)
+
+On the left Cost Function chart which collect cost value \
+every 500 epoch.
+
+On the right tally of prediction vs actual values. Where:
+- Blue - predicted
+- Orange - actual
