@@ -16,14 +16,15 @@ python training_test.py
 ## Neural Network
 It's a system of layers which allows us to train network \
 by the process called [Backpropagation](#backpropagation) to adjust our model \
-to solve current problem based on training set. Neural \ Networks have:
+to solve current problem based on training set. Neural Networks have:
 - input layer;
 - hidden layers;
 - output layer;
 
 Where input layer is responsible for passing input data \
 in the process of feeding forward to first hidden layer. \
- Data passed by [Activation Function](#activation-function) of each neuron in layer is next transport to output layer which include our final result. Number of hidden layer, \
+ Data passed by [Activation Function](#activation-function) of each neuron in layer is next transport to \
+ output layer which include our final result. Number of hidden layer, \
  their size, size of input and output layer, number of epoch \
 in training loop and learning rate are called [Hyperparameters](#hyperparameters).
 
