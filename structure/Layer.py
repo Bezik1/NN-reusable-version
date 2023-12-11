@@ -29,7 +29,6 @@ class Layer:
 
             return d_L_d_w
     
-    
     def get_weights(self):
         return [neuron.get_weights() for neuron in self.neurons]
 
