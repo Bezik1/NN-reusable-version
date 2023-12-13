@@ -18,7 +18,7 @@ def ReLu(x):
     return np.maximum(0, x)
 
 def d_ReLu(x):
-    return 0 if x <= 0 else 1
+    return np.where(x > 0, 1, 0)
 
 def tanh(x):
     return np.tanh(x)

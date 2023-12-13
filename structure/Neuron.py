@@ -3,7 +3,7 @@ from helpers.functions import d_tanh, tanh
 
 class Neuron:
     def __init__(self, input_size)-> None:
-        self.w = np.random.rand(input_size)
+        self.w = np.random.randn(input_size)
         self.b = 0
 
         self.input = None
@@ -30,9 +30,9 @@ class Neuron:
         d_L_d_z = d_L_d_out * d_out_d_z
 
         for i in range(len(self.w)):
-            self.w[i] += learning_rate * d_L_d_z * self.input[i]
+            self.w[i] -= learning_rate * d_L_d_z * self.input[i]
         
-        self.b += learning_rate * d_L_d_z
+        self.b -= learning_rate * d_L_d_z
 
         return d_L_d_z * self.w.flatten()
     

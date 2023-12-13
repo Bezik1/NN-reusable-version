@@ -19,4 +19,10 @@ if __name__ == "__main__":
         "Predictions vs Actual"
     )
 
+    # visualizer.draw(
+    #     [(loss_history, "Cost Function")],
+    #     "Epoch",
+    #     "Loss",
+    #     "Cost Function"
+    # )
     visualizer.visualize()

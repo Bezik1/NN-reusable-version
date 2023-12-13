@@ -1,6 +1,6 @@
 import json
 from structure.Layer import Layer
-from helpers.functions import mse_loss
+from helpers.functions import mse_loss, d_mse_loss
 from const.paths import TRAINED_NETWORK
 
 class NeuralNetwork:
@@ -32,10 +32,10 @@ class NeuralNetwork:
         return output
 
     def backprop(self, y, output):
-        d_L_d_out = 2*(y - output)
+        d_L_d_out = d_mse_loss(y, output)
 
         d_L_d_prev = self.output_layer.backprop(d_L_d_out, self.learning_rate)
-        for i, layer in enumerate(self.hidden_layers):
+        for i, layer in enumerate(reversed(self.hidden_layers)):
             d_L_d_prev = layer.backprop(d_L_d_prev, self.learning_rate)
         
         self.input_layer.backprop(d_L_d_prev, self.learning_rate)
