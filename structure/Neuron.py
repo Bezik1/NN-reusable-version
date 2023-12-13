@@ -1,5 +1,5 @@
 import numpy as np
-from helpers.functions import d_sigmoid, sigmoid
+from helpers.functions import d_tanh, tanh
 
 class Neuron:
     def __init__(self, input_size)-> None:
@@ -21,11 +21,11 @@ class Neuron:
         self.input = X
         self.calcualte_z(X)
 
-        self.output = sigmoid(self.z)
+        self.output = tanh(self.z)
         return self.output
     
     def backprop(self, d_L_d_out, learning_rate):
-        d_out_d_z = d_sigmoid(self.z)
+        d_out_d_z = d_tanh(self.z)
 
         d_L_d_z = d_L_d_out * d_out_d_z
 

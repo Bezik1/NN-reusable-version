@@ -14,13 +14,7 @@ if __name__ == "__main__":
     network = NeuralNetwork(hyperparameters, True)
     loss_history, last_predictions = network.train(data_2, all_y_trues_2S)
 
-    visualizer = Visualizer(VISUALIZER_SIZE, VISUALIZER_COLUMNS)
-    visualizer.draw(
-        [(loss_history, "Cost Function")],
-        "Epoch",
-        "Loss",
-        "Cost Function"
-    )
+    visualizer = Visualizer(1, 1)
 
     visualizer.draw(
         [(last_predictions, "Predictions"), (all_y_trues_2S, "Actual Value")],

@@ -1,6 +1,6 @@
 import numpy as np
 from structure.Neuron import Neuron
-from helpers.functions import d_sigmoid
+from helpers.functions import d_tanh
 
 class Layer:
     def __init__(self, prev_size, size) -> None:
@@ -17,7 +17,7 @@ class Layer:
         return self.output.flatten()
     
     def backprop(self, d_L_d_out, learning_rate):
-            d_out_d_input = np.array([d_sigmoid(neuron.z) for neuron in self.neurons])
+            d_out_d_input = np.array([d_tanh(neuron.z) for neuron in self.neurons])
 
             d_L_d_input = d_L_d_out * d_out_d_input
 

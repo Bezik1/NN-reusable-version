@@ -150,11 +150,10 @@ def mse_loss(y, pred):
 Activation function is a function that according to \
 in our neural network we are calculating output of each neuron \
 
-In our case I chose [Sigmoid Function](https://en.wikipedia.org/wiki/Sigmoid_function):
+In our case I chose [Hyperbolic Tangent Function](https://mathworld.wolfram.com/HyperbolicTangent.html):
 ```python
-def sigmoid(z):
-    """The sigmoid function."""
-    return 1.0 / (1.0 + np.exp(-np.clip(z, -100, 101)))
+def tanh(x):
+    return np.tanh(x)
 ```
 
 # Backpropagation
@@ -169,9 +168,8 @@ To calculate gradients I'm using following equations:
 
 Activation Function:
 ```python
-def d_sigmoid(z):
-    """Derivative of the sigmoid function."""
-    return sigmoid(z)*(1-sigmoid(z))
+def d_tanh(x):
+    return 1 - np.tanh(x)**2
 ```
 
 Cost Function:

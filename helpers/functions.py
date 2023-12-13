@@ -19,4 +19,9 @@ def ReLu(x):
 
 def d_ReLu(x):
     return 0 if x <= 0 else 1
-    
+
+def tanh(x):
+    return np.tanh(x)
+
+def d_tanh(x):
+    return 1 - np.tanh(x)**2

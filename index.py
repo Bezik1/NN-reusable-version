@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     while True:
         number = float(input("Number to square: "))
-        print(round(network.forward(np.array([number]))[0], 2))
+        print(round(network.forward(np.array([number / 10]))[0]*100))
 
     # weight = float(input("Weight: "))
     # height = float(input("Height: "))
