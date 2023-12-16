@@ -12,14 +12,14 @@ class Neuron:
         self.z = None
         self.output = None
 
-    def calcualte_z(self, X):
+    def calculate_z(self, X):
         """Calculating sum of Wi multiplied by Xi and b"""
         self.z = np.dot(self.w, X) + self.b
         return self.z
 
     def forward(self, X):
         self.input = X
-        self.calcualte_z(X)
+        self.calculate_z(X)
 
         self.output = tanh(self.z)
         return self.output
@@ -38,6 +38,9 @@ class Neuron:
     
     def get_weights(self):
         return {"weights": self.w.tolist(), "bias": self.b.tolist()}
+
+    def get_current_weights(self):
+        return self.w
 
     def set_weights(self, weights_data):
         self.w = np.array(weights_data["weights"])

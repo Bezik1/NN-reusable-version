@@ -18,6 +18,7 @@ class Hyperparameters:
             self.hidden_size = int(data['hidden_size'])
             self.hidden_neurons = int(data['hidden_neurons'])
             self.output_size = int(data['output_size'])
+            self.regularization_strength  = float(data["regularization_strength"])
         
         except FileNotFoundError:
             print("Hyperparameters file not found.")

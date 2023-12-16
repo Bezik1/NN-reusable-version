@@ -32,6 +32,9 @@ class Layer:
     def get_weights(self):
         return [neuron.get_weights() for neuron in self.neurons]
 
+    def get_current_weights(self):
+        return np.array([neuron.get_current_weights() for neuron in self.neurons])
+
     def set_weights(self, weights_data):
         for i, neuron in enumerate(self.neurons):
             neuron.set_weights(weights_data[i])

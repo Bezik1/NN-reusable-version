@@ -24,4 +24,4 @@ if __name__ == "__main__":
 
     while True:
         number = float(input("Number to square: "))
-        print(round(network.forward(np.array([number / 10]))[0]*100))
+        print(round(network.forward(np.array([number / 100]))[0]*10000))
